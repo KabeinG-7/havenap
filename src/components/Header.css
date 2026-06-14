@@ -1,0 +1,143 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 4rem;
+  z-index: 100;
+  pointer-events: none; /* Let clicks pass through empty areas outside the pill */
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.3); /* More transparent for better glass effect */
+  backdrop-filter: blur(24px); /* Stronger blur */
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Brighter border */
+  border-top: 1px solid rgba(255, 255, 255, 0.8); /* Highlight top edge */
+  border-left: 1px solid rgba(255, 255, 255, 0.8); /* Highlight left edge */
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  pointer-events: auto; /* Re-enable clicks inside the pill */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.2);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-logo {
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #666; /* Greyish */
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.header-logo:hover {
+  opacity: 0.8;
+}
+
+.header-nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #666; /* Greyish */
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.2rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #444; /* Darker grey on hover */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #444; /* Darker grey on hover */
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.store-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #666; /* Greyish */
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.store-button:hover {
+  transform: translateY(-2px);
+}
+
+.store-button:active {
+  transform: translateY(0);
+}
+
+.store-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+@media (max-width: 968px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+  .header-nav {
+    display: none; /* Keep it simple on mobile */
+  }
+  .header-container {
+    padding: 0.8rem 1.5rem;
+  }
+}

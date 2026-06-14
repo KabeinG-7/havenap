@@ -1,0 +1,99 @@
+.products-section {
+  position: relative;
+  width: 100vw;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.products-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130%; /* taller for parallax */
+  object-fit: cover;
+  z-index: 0;
+  will-change: transform;
+}
+
+.products-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,0.5) 50%, rgba(5,5,5,0.8));
+  z-index: 1;
+}
+
+.products-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 6rem 2rem;
+  color: #fff;
+  will-change: transform, opacity;
+}
+
+.products-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.products-desc {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  margin-bottom: 4rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.products-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1;
+  min-width: 280px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.product-card:hover {
+  transform: translateY(-12px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.product-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.product-card p {
+  font-size: 1rem;
+  opacity: 0.7;
+  line-height: 1.5;
+  color: #fff;
+}
