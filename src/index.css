@@ -20,12 +20,24 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-secondary);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.app {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,4 +72,19 @@ html.lenis {
 }
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+.main-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 100vh;
+  background-color: #0D0D0D;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-bottom: 0;
+  }
 }

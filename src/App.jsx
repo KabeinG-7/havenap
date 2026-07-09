@@ -1,16 +1,24 @@
 import React, { useEffect } from 'react';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from './components/Header';
-import MainSequence from './components/MainSequence';
+// import HeroFeaturesSequence from './components/HeroFeaturesSequence';
+import EditorialStory from './components/EditorialStory';
+import FeaturesGrid from './components/FeaturesGrid';
+import ImmersiveFeatures from './components/ImmersiveFeatures';
+import CouplesComfort from './components/CouplesComfort';
+import HowItWorks from './components/HowItWorks';
 import ProductsSection from './components/ProductsSection';
-import MattressTopperSection from './components/MattressTopperSection';
+import PreFooterCTA from './components/PreFooterCTA';
 import Footer from './components/Footer';
+import About from './pages/About';
+import Product from './pages/Product';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
+function HomePage() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -39,11 +47,37 @@ function App() {
   }, []);
 
   return (
+    <main className="main-content">
+      <EditorialStory />
+      <FeaturesGrid />
+      <ImmersiveFeatures />
+      <CouplesComfort />
+      <HowItWorks />
+      {/* <HeroFeaturesSequence /> */}
+      <ProductsSection />
+      <PreFooterCTA />
+    </main>
+  );
+}
+
+function App() {
+  const location = useLocation();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    ScrollTrigger.refresh();
+  }, [location.pathname]);
+
+  return (
     <div className="app">
       <Header />
-      <MainSequence />
-      <ProductsSection />
-      <MattressTopperSection />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/shop" element={<Navigate to="/product" replace />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
       <Footer />
     </div>
   );

@@ -1,0 +1,229 @@
+/* ─── Section wrapper ─── */
+.cc-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+}
+
+/* ─── Full-bleed background ─── */
+.cc-bg-wrap {
+  position: absolute;
+  inset: -15%; /* extra room for parallax travel */
+  z-index: 0;
+}
+
+.cc-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.cc-bg-overlay {
+  position: absolute;
+  inset: 0;
+  /* dark gradient so text is always legible */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.40) 45%,
+    rgba(0, 0, 0, 0.70) 100%
+  );
+}
+
+/* ─── Content layer ─── */
+.cc-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  text-align: center;
+  color: #fff;
+}
+
+/* ─── Centre headline ─── */
+.cc-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cc-headline {
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0 0 1.2rem;
+}
+
+.cc-headline em {
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+}
+
+.cc-lead {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 480px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── Split cards row ─── */
+.cc-split-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  max-width: 860px;
+}
+
+/* ─── Individual side card ─── */
+.cc-side-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 2.5rem 2.5rem 2rem;
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.cc-side-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.cc-side-card--soft {
+  background: rgba(180, 210, 255, 0.12);
+  border-radius: 24px 0 0 24px;
+}
+
+.cc-side-card--firm {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0 24px 24px 0;
+}
+
+.cc-side-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.45);
+  font-weight: 700;
+}
+
+.cc-side-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.cc-side-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.cc-side-card p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Accent bar at the bottom of each card */
+.cc-side-bar {
+  margin-top: auto;
+  height: 3px;
+  width: 40px;
+  border-radius: 2px;
+}
+
+.cc-side-bar--soft {
+  background: rgba(147, 197, 253, 0.8); /* sky blue */
+}
+
+.cc-side-bar--firm {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ─── Centre divider pill ─── */
+.cc-divider-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 1.5rem 0.7rem;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.cc-divider-pill span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.55);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ─── Bottom caption ─── */
+.cc-caption {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.45);
+  max-width: 480px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .cc-content {
+    padding: 6rem 2rem;
+    gap: 3rem;
+  }
+
+  .cc-split-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cc-side-card--soft,
+  .cc-side-card--firm {
+    border-radius: 20px;
+  }
+
+  .cc-divider-pill {
+    writing-mode: horizontal-tb;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.12);
+    align-self: center;
+  }
+}

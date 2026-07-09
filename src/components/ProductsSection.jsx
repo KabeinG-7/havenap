@@ -51,23 +51,28 @@ const ProductsSection = () => {
       <div className="products-overlay"></div>
       
       <div className="products-content" ref={contentRef}>
-        <h2 className="products-title">Complete Your Sleep</h2>
-        <p className="products-desc">The Havenap topper is just the beginning. Explore our full range of premium sleep products designed to transform your nights.</p>
-        
-        <div className="products-grid">
-          <div className="product-card">
-            <h3>Cooling Pillows</h3>
-            <p>Adaptive support that stays cool all night.</p>
-          </div>
-          <div className="product-card">
-            <h3>Luxury Sheets</h3>
-            <p>Breathable, ultra-soft percale weave.</p>
-          </div>
-          <div className="product-card">
-            <h3>Weighted Blankets</h3>
-            <p>Deep pressure stimulation for a calmer rest.</p>
-          </div>
-        </div>
+        <h2 className="products-title">Looking for the Havenap Topper?</h2>
+        <p className="products-desc">
+          Upgrade your current mattress instantly. Buy our premium memory foam topper and add the perfect layer of cloud-like comfort and cooling technology to any bed.
+        </p>
+        <p style={{ fontSize: '1.25rem', fontWeight: '500', marginBottom: '2rem' }}>Starting at $199.00</p>
+        <a 
+          href="#buy" 
+          style={{ 
+            display: 'inline-block', 
+            padding: '1rem 2.5rem', 
+            backgroundColor: '#fff', 
+            color: '#000', 
+            textDecoration: 'none', 
+            borderRadius: '30px', 
+            fontWeight: '500', 
+            transition: 'transform 0.3s ease' 
+          }}
+          onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+          onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+        >
+          Shop Now
+        </a>
       </div>
     </section>
   );

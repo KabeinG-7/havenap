@@ -1,0 +1,191 @@
+.editorial-story {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, #e3e3e3, #f8f8f8, #d5d5d5, #f0f0f0);
+  background-size: 300% 300%;
+  animation: gradientFlow 15s ease infinite;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.editorial-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Small top and bottom labels */
+.editorial-top-label,
+.editorial-bottom-label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  z-index: 3;
+  opacity: 0.6;
+}
+
+.editorial-top-label {
+  top: 4vh;
+}
+
+.editorial-bottom-label {
+  bottom: 4vh;
+  letter-spacing: 0.4em;
+  font-weight: 500;
+}
+
+/* Typography Layer */
+.editorial-text-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3vw;
+  padding: 8vh 4vw;
+  pointer-events: none;
+  z-index: 3; /* Placed above the video for blend effect */
+  mix-blend-mode: difference;
+}
+
+.editorial-word {
+  font-size: clamp(4rem, 12vw, 15rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #ffffff; /* White text creates dynamic inversion with difference mode */
+  text-transform: capitalize;
+  will-change: transform, opacity;
+}
+
+.editorial-word:nth-child(1) {
+}
+
+.editorial-word:nth-child(2) {
+}
+
+/* Image Wrapper */
+.editorial-image-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2; /* Placed above the text */
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  will-change: width, height, transform, border-radius;
+}
+
+.editorial-image-wrapper img,
+.editorial-image-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Responsive constraints */
+@media (max-width: 768px) {
+  .editorial-word {
+    font-size: clamp(3rem, 18vw, 8rem);
+  }
+  .editorial-image-wrapper {
+    width: 100vw;
+    height: 100vh;
+  }
+  .editorial-text-layer {
+    padding: 2vh 0; /* Reduced from 8vh */
+  }
+}
+
+.editorial-subtitle-wrapper {
+  position: absolute;
+  bottom: 20vh;
+  right: 8vw;
+  width: 35vw;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  z-index: 3;
+  will-change: opacity, transform;
+}
+
+.editorial-subtitle {
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  color: #333;
+}
+
+.editorial-description {
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #555;
+}
+
+.editorial-cta {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background: #111;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.editorial-cta:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .editorial-subtitle-wrapper {
+    bottom: 12vh;
+    right: 5vw;
+    width: 40vw;
+  }
+  .editorial-subtitle {
+    font-size: 0.85rem;
+  }
+  .editorial-description {
+    font-size: 0.85rem;
+  }
+  .editorial-cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
